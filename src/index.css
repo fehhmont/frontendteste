@@ -1,11 +1,16 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --color-fresh: #ffffff;
+  --color-vermillion: #2c3e50;
+  --color-sunshine: #718096;
+  --color-clean: #e2e8f0;
+  --color-white: #ffffff;
+  --primary-blue: #3b82f6;
+  --primary-green: #10b981;
+  --accent-orange: #f59e0b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,54 +18,82 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
+
 a:hover {
-  color: #535bf2;
+  color: #2563eb;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f3f4f6;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: var(--color-vermillion);
 }
+
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.4em;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.8em;
+  line-height: 1.4;
+  font-weight: 600;
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.75em 1.5em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(59, 130, 246, 0.3);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.4);
+  outline-offset: 2px;
+}
+
+input, textarea, select {
+  font-family: inherit;
 }
